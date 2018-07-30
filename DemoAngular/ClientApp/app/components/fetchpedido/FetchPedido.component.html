@@ -1,0 +1,30 @@
+﻿
+<h1>Pedidos Mozart</h1>
+<!--<p>This component demonstrates fetching Employee data from the server.</p>-->
+<p *ngIf="!pedidoList"><em>Loading...</em></p>
+<!--<p>
+    <a [routerLink]="['/register-employee']">Create New</a>
+</p>-->
+<table class='table' >
+    <thead>
+        <tr>
+            <th>Nro Pedido</th>
+            <th>Descripcion Pedido</th>
+            <th>Codigo Vendedor</th>
+            <!--<th>City</th>-->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ped of pedidoList;">
+            <td>{{ ped.NroPedido }}</td>
+            <td>{{ ped.DesPedido }}</td>
+            <td>{{ ped.CodVendedor }}</td>
+           
+            <td>
+                <!--<td>
+                    <a [routerLink]="['/employee/edit/', emp.id]">Edit</a> |
+                    <a [routerLink]="" (click)="delete(emp.id)">Delete</a>
+                </td>-->
+        </tr>
+    </tbody>
+</table>
