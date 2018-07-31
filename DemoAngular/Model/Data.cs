@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.Extensions.Configuration;
+
 namespace DemoAngular.Model
 {   
     public class Data
     {
-
+        
         //const string strSecureAppSettings = "secureAppSettings";
+        //public static IConfiguration Configuration { get; set; }
+
+        //var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
 
 
         //public static string StrNomServ_WebsSql
         //{
+            
 
         //    get { return ((NameValueCollection)WebConfigurationManager.GetSection(strSecureAppSettings))[("bdturismo_SOURCE")]; }
 
@@ -47,7 +54,6 @@ namespace DemoAngular.Model
         //    }
         //}
 
-
-
+       
     }
 }

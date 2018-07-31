@@ -10,59 +10,40 @@ namespace DemoAngular.Model
     public class PedidoDataAccessLayer
     {
         string connectionString = "Data Source=192.168.50.60;initial catalog =BDTURISMO;User ID=dbadmin;Password=123abc";
+
         public IEnumerable<Pedido> ObtenerListadoPedido()
         {
-
-
             try
             {
+                List<Pedido> lstpedido = new List<Pedido>();
 
-                var lstPedido = new List<Pedido>();
-
-                using (SqlConnection objConnection = new SqlConnection(connectionString))
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
 
-                    using (SqlCommand objCommand = new SqlCommand())
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM CPEDIDO WHERE CodVendedor='MAYRA' AND FchPedido > = '2018-06-15';", con);
+
+                    //cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.Text;
+
+                    con.Open();
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
                     {
-
-                        objCommand.CommandText = "SELECT * FROM CPEDIDO WHERE CodVendedor='MAYRA' AND FchPedido > = '2018-06-15';";
-                        objCommand.CommandType = CommandType.Text;
-                        objCommand.Connection = objConnection;
-                        objConnection.Open();
-
-                        using (var reader = objCommand.ExecuteReader())
+                        Pedido pedido = new Pedido
                         {
+                            NroPedido = Convert.ToInt32(rdr["NroPedido"]),
+                            DesPedido = rdr["DesPedido"].ToString()
+                        };
 
-                            while (reader.Read())
-                            {
-
-                                var pedido = new Pedido
-                                {
-                                    NroPedido = int.Parse(GetValue(reader, "NroPedido")),
-                                    DesPedido = GetValue(reader, "DesPedido"),
-                                    FchPedido = DateTime.Parse(GetValue(reader, "FchPedido"))
-
-
-
-                                };
-                                //pedido.CodVendedor = Convert.ToChar(GetValue(reader, "CodVendedor"));
-
-                                lstPedido.Add(pedido);
-
-                            }
-
-                            objConnection.Close();
-
-                        }
-
+                        lstpedido.Add(item: pedido);
                     }
-
-                    return lstPedido;
-
+                    con.Close();
                 }
-
+                return lstpedido;
             }
-            catch {
+            catch
+            {
                 throw;
             }
         }

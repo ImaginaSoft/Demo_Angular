@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -11,6 +12,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { FetchPedidoComponent } from './components/fetchpedido/fetchpedido.component'
 import { PedidoService } from './Services/pedidoservice.service';
+import { FilterPipe } from '../app/components/pipes/filter.pipe';
 
 @NgModule({
     declarations: [
@@ -19,12 +21,15 @@ import { PedidoService } from './Services/pedidoservice.service';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        FetchPedidoComponent
+        FetchPedidoComponent,
+        FilterPipe
     ],
+
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        BrowserModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
@@ -34,7 +39,12 @@ import { PedidoService } from './Services/pedidoservice.service';
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers: [PedidoService]
+
+    providers: [PedidoService],
+
+    exports: [
+        FilterPipe
+    ]
 })
 export class AppModuleShared {
 }

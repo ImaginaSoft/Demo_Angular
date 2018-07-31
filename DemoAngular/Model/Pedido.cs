@@ -21,6 +21,5 @@ namespace DemoAngular.Model
         [JsonProperty(PropertyName = "CodVendedor")]
         public char CodVendedor { get; set; }
                 
-
     }
 }

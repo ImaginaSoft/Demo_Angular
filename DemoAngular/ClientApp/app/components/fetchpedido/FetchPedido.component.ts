@@ -3,7 +3,6 @@ import { Http, Headers } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PedidoService } from '../../Services/pedidoservice.service';
 
-
 @Component({
     selector: 'FetchPedido',
     templateUrl: './FetchPedido.component.html' 
@@ -12,6 +11,8 @@ import { PedidoService } from '../../Services/pedidoservice.service';
 export class FetchPedidoComponent {
 
     public pedidoList: PedidoData[];
+
+    public searchString: string;
 
     constructor(public http: Http, private _router: Router, private _pedidoService: PedidoService) {
 
@@ -28,23 +29,16 @@ export class FetchPedidoComponent {
         )
 
     }
-
-    //getPedidos() {
-
-    //    this._pedidoService.getPedidos().subscribe(
-    //        data => {
-    //            debugger;
-    //            this.pedidoList = JSON.parse(data._body);
-    //        }
-    //    )
-     
-    //}
-
+    
 }
+
 interface PedidoData {
+
     NroPedido: number;
     DesPedido: string;
     FchPedido: Date;
     CodVendedor: string;
 
 }
+
+
