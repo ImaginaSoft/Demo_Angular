@@ -26,6 +26,7 @@ namespace DemoAngular.Model
                     cmd.CommandType = CommandType.Text;
 
                     con.Open();
+
                     SqlDataReader rdr = cmd.ExecuteReader();
 
                     while (rdr.Read())
@@ -38,9 +39,12 @@ namespace DemoAngular.Model
 
                         lstpedido.Add(item: pedido);
                     }
+
                     con.Close();
                 }
+
                 return lstpedido;
+
             }
             catch
             {

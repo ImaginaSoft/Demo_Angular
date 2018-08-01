@@ -13,6 +13,8 @@ import { CounterComponent } from './components/counter/counter.component';
 import { FetchPedidoComponent } from './components/fetchpedido/fetchpedido.component'
 import { PedidoService } from './Services/pedidoservice.service';
 import { FilterPipe } from '../app/components/pipes/filter.pipe';
+import { FichaPropuestaService } from './Services/fichapropuesta.service';
+import { FetchFichaPropuestaComponent } from './components/fetchfichapropuesta/fetchfichapropuesta.component'
 
 @NgModule({
     declarations: [
@@ -22,7 +24,8 @@ import { FilterPipe } from '../app/components/pipes/filter.pipe';
         FetchDataComponent,
         HomeComponent,
         FetchPedidoComponent,
-        FilterPipe
+        FilterPipe,
+        FetchFichaPropuestaComponent
     ],
 
     imports: [
@@ -36,11 +39,12 @@ import { FilterPipe } from '../app/components/pipes/filter.pipe';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'fetch-pedido', component: FetchPedidoComponent },  
+            { path: 'fetch-ficha', component: FetchFichaPropuestaComponent },  
             { path: '**', redirectTo: 'home' }
         ])
     ],
 
-    providers: [PedidoService],
+    providers: [PedidoService, FichaPropuestaService],
 
     exports: [
         FilterPipe

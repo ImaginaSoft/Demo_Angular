@@ -1,0 +1,45 @@
+﻿
+<h1>Itinerario GG</h1>
+<!--<p>This component demonstrates fetching Employee data from the server.</p>-->
+<p *ngIf="!fichaList"><em>Loading...</em></p>
+<!--<p>
+    <a [routerLink]="['/register-employee']">Create New</a>
+</p>-->
+
+<form>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+            <input type="text" class="form-control" name="searchString" placeholder="Buscar por descripción.." [(ngModel)]="searchString">
+        </div>
+    </div>
+</form>
+<table class='table'>
+    <thead>
+        <tr>
+            <th>NroDia</th>
+            <th>NroOrden</th>
+            <th>NroServicio</th>
+            <th>DesServicio</th>
+            <!--<th>Codigo Vendedor</th>-->
+            <!--<th>City</th>-->
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let fich of fichaList">
+
+            <td>{{ fich.NroDia }}</td>
+            <td>{{ fich.NroOrden }}</td>
+            <td>{{ fich.NroServicio }}</td>
+            <td>{{ fich.DesServicio }}</td>
+
+
+            <!--<a [routerLink]="['/employee/edit/', emp.id]">Edit</a>
+            <a [routerLink]="" (click)="delete(emp.id)">Delete</a>-->
+
+            <a > Ver...</a>
+            <!--<a >Delete</a>-->
+
+        </tr>
+    </tbody>
+</table>
