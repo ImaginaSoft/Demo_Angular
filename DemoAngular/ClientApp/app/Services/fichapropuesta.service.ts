@@ -24,6 +24,15 @@ export class FichaPropuestaService {
             .catch(this.errorHandler);
     }
 
+
+    getPropuestaDetalle(nroPedido: number, nroPropuesta: number) {
+
+        return this._http.get(this.myAppUrl + "api/Pedido/DetallePropuesta/" + nroPedido + "/" + nroPropuesta)
+            .map((response: Response) => response.json())
+            .catch(this.errorHandler)  
+
+    }
+    
     errorHandler(error: Response) {
 
         console.log(error);

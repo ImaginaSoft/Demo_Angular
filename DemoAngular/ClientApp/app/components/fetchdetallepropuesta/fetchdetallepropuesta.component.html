@@ -1,5 +1,4 @@
-﻿
-<h1>Propuestas GG</h1>
+﻿<h1>Itinerario GG</h1>
 <!--<p>This component demonstrates fetching Employee data from the server.</p>-->
 <p *ngIf="!fichaList"><em>Loading...</em></p>
 <!--<p>
@@ -17,27 +16,25 @@
 <table class='table'>
     <thead>
         <tr>
-            <th>Nro Propuesta</th>
-            <th>Descripcion</th>
+            <th>NroDia</th>
+            <th>NroOrden</th>
+            <th>NroServicio</th>
+            <th>DesServicio</th>
             <!--<th>NroServicio</th>
-            <th>DesServicio</th>-->
+    <th>DesServicio</th>-->
             <!--<th>Codigo Vendedor</th>-->
             <!--<th>City</th>-->
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let fich of fichaList">
+        <tr *ngFor="let det of detallepropuestalist">
 
-            <td>{{ fich.NroPropuesta }}</td>
-            <td>{{ fich.DesPropuesta }}</td>
-
-
-            <a [routerLink]="['/pedido/edit/', fich.NroPedido, fich.NroPropuesta ]">Ver...</a>
-
-    <!--<a [routerLink]="" (click)="delete(emp.id)">Delete</a>-->
-
-            <!--<a> Ver...</a>-->
-            <!--<a >Delete</a>-->
+            <td>{{ det.NroDia }}</td>
+            <td>{{ det.NroOrden }}</td>
+            <td>{{ det.NroServicio }}</td>
+            <td>{{ det.DesServicio }}</td>
+            <!--<a [routerLink]="['/employee/edit/', emp.id]">Edit</a>
+            <a [routerLink]="" (click)="delete(emp.id)">Delete</a>-->
 
         </tr>
     </tbody>

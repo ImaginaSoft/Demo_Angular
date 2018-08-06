@@ -23,6 +23,14 @@ namespace DemoAngular.Controllers
                 return objfprpuesta.ObtenerListadoPropuesta();
         }
 
+        [HttpGet("[action]")]
+        [Route("api/Pedido/DetallePropuesta/{NroPedido}/{NroPropuesta}")]
+        public IEnumerable<FichaPropuesta> Propuesta_Detalle(int nroPedido,int nroPropuesta) {
+
+            return objfprpuesta.ObtenerDetallePropuesta(nroPedido, nroPropuesta);
+
+        }
+
         // GET api/<controller>/5
         //[HttpGet("{id}")]
         //public string Get(int id)

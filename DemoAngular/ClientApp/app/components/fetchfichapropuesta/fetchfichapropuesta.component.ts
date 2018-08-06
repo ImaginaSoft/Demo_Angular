@@ -36,11 +36,12 @@ interface FichaPropuestaData {
 
     NroPedido: number;
     NroPropuesta: number;
-    NroDia: number;
-    NroOrden: number;
-    NroServicio: number;
-    DesServicio: string;
-    DesServicioDet: string;
+    DesPropuesta: string;
+    //NroDia: number;
+    //NroOrden: number;
+    //NroServicio: number;
+    //DesServicio: string;
+    //DesServicioDet: string;
 
   
 

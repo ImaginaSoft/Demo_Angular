@@ -14,7 +14,8 @@ import { FetchPedidoComponent } from './components/fetchpedido/fetchpedido.compo
 import { PedidoService } from './Services/pedidoservice.service';
 import { FilterPipe } from '../app/components/pipes/filter.pipe';
 import { FichaPropuestaService } from './Services/fichapropuesta.service';
-import { FetchFichaPropuestaComponent } from './components/fetchfichapropuesta/fetchfichapropuesta.component'
+import { FetchFichaPropuestaComponent } from './components/fetchfichapropuesta/fetchfichapropuesta.component';
+import { propuestadetalle } from './components/fetchdetallepropuesta/fetchdetallepropuesta.component'
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { FetchFichaPropuestaComponent } from './components/fetchfichapropuesta/f
         HomeComponent,
         FetchPedidoComponent,
         FilterPipe,
-        FetchFichaPropuestaComponent
+        FetchFichaPropuestaComponent,
+        propuestadetalle
     ],
 
     imports: [
@@ -39,7 +41,8 @@ import { FetchFichaPropuestaComponent } from './components/fetchfichapropuesta/f
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'fetch-pedido', component: FetchPedidoComponent },  
-            { path: 'fetch-ficha', component: FetchFichaPropuestaComponent },  
+            { path: 'fetch-ficha', component: FetchFichaPropuestaComponent }, 
+            { path: 'pedido/edit/:nroPedido/:nroPropuesta', component: propuestadetalle },
             { path: '**', redirectTo: 'home' }
         ])
     ],

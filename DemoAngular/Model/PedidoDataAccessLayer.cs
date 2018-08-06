@@ -20,13 +20,14 @@ namespace DemoAngular.Model
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
 
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM CPEDIDO WHERE CodVendedor='MAYRA' AND FchPedido > = '2018-06-15';", con);
+                    SqlCommand cmd = new SqlCommand("VTA_PropuestaNroPedido_S", con);
 
-                    //cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandType = CommandType.Text;
-
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.Add("@NroPedido", SqlDbType.Int).Value = 147140;
+                    
                     con.Open();
-
+                    cmd.ExecuteNonQuery();
                     SqlDataReader rdr = cmd.ExecuteReader();
 
                     while (rdr.Read())

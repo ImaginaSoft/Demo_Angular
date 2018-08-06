@@ -21,11 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\fetchdetallepropuesta\fetchdetallepropuesta.component.ts" />
     <None Remove="ClientApp\app\components\fetchpedido\FetchPedido.component.ts" />
     <None Remove="ClientApp\app\Services\pedidoservice.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\fetchdetallepropuesta\fetchdetallepropuesta.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\fetchpedido\FetchPedido.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\Services\pedidoservice.service.ts" />
   </ItemGroup>

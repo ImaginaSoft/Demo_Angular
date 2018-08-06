@@ -15,6 +15,9 @@ namespace DemoAngular.Model
         [JsonProperty(PropertyName = "NroPropuesta")]
         public int NroPropuesta { get; set; }
 
+        [JsonProperty(PropertyName = "DesPropuesta")]
+        public string DesPropuesta { get; set; }
+
         [JsonProperty(PropertyName = "NroDia")]
         public int NroDia { get; set; }
 
